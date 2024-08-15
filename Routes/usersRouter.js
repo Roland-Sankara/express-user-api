@@ -4,9 +4,9 @@ import userController from "../Controllers/userController.js";
 
 // get requests
 
-router.get("/", userController.getallUsers)
-
-router.post("/", userController.createNewUser)
+router.route("/")
+    .get(userController.getallUsers)
+    .post(userController.createNewUser)
 // post requests 
 
 export default router;
