@@ -1,0 +1,534 @@
+{
+	"info": {
+		"_postman_id": "d0e56379-e977-4488-9377-3c6b00b8c015",
+		"name": "Backend Quotes-API Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6512450"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create a user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Steve Jobs\",\r\n    \"password\": \"jobs@256\",\r\n    \"email\": \"steve@apple.com\",\r\n    \"role\": \"subscriber\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4500/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4500",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sample response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"Steve Jobs\",\r\n    \"password\": \"jobs@256\",\r\n    \"email\": \"steve@apple.com\",\r\n    \"role\": \"subscriber\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4500/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4500",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "171"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ab-Ul8OF7DVhEkdmSjA83mjo0nNzDg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 31 Aug 2024 10:45:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"user created\",\n    \"user\": {\n        \"id\": \"2d8b4330-df55-41e1-abbd-97732afca448\",\n        \"username\": \"Steve Jobs\",\n        \"password\": \"jobs@256\",\n        \"email\": \"steve@apple.com\",\n        \"role\": \"subscriber\"\n    }\n}"
+						},
+						{
+							"name": "Create User with Invalid Email",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"Steve Jobs\",\r\n    \"password\": \"jobs@256\",\r\n    \"email\": \"stev\",\r\n    \"role\": \"subscriber\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4500/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4500",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "33"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"21-GLGw2bQF7Y7YhGdizPVPd+abD7Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 31 Aug 2024 10:53:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "\"\\\"email\\\" must be a valid email\""
+						}
+					]
+				},
+				{
+					"name": "Get Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJkOGI0MzMwLWRmNTUtNDFlMS1hYmJkLTk3NzMyYWZjYTQ0OCIsInJvbGUiOiJzdWJzY3JpYmVyIiwiaWF0IjoxNzI1MTAyMDA5LCJleHAiOjE3MjUxMDU2MDl9.v5RXBJsUtx29H9gp6HQwQoILzj6N_WIU07EARQ9saMQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4500/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4500",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "No Auth Header",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4500/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4500",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-2bB2Z/YaKwnDaF9VOC0wU8Z78/0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 31 Aug 2024 10:57:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "\"Authorization Header with Access Token is Missing\""
+						},
+						{
+							"name": "List of Users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4500/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4500",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "413"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"19d-S7NfABf7QT9FNV+gkt+d15A5Kxc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 31 Aug 2024 11:04:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"ef76f723-14d1-41eb-b03c-29de07838a47\",\n        \"username\": \"steveDev\",\n        \"password\": \"12345678\",\n        \"email\": \"steve@email.com\",\n        \"role\": \"subscriber\"\n    },\n    {\n        \"id\": \"bbcfcabe-d7d1-4183-bb53-f06f7b82870c\",\n        \"username\": \"Rolando-Wise\",\n        \"password\": \"12234464646\",\n        \"email\": \"wise@email.com\",\n        \"role\": \"editor\"\n    },\n    {\n        \"id\": \"2d8b4330-df55-41e1-abbd-97732afca448\",\n        \"username\": \"Steve Jobs\",\n        \"password\": \"jobs@256\",\n        \"email\": \"steve@apple.com\",\n        \"role\": \"subscriber\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "User Token response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"Steve Jobs\",\r\n    \"password\": \"jobs@256\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4500/users/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4500",
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "245"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f5-jdMaYBqlZbB6VyN06jR+/fJ6TIM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 31 Aug 2024 11:00:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJkOGI0MzMwLWRmNTUtNDFlMS1hYmJkLTk3NzMyYWZjYTQ0OCIsInJvbGUiOiJzdWJzY3JpYmVyIiwiaWF0IjoxNzI1MTAyMDA5LCJleHAiOjE3MjUxMDU2MDl9.v5RXBJsUtx29H9gp6HQwQoILzj6N_WIU07EARQ9saMQ\",\n    \"Message\": \"Success\"\n}"
+						},
+						{
+							"name": "Invalid Password Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"Steve Jobs\",\r\n    \"password\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4500/users/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4500",
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "34"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"22-w6xui1OY1qDReFeGBS6H+9hu8Dc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 31 Aug 2024 11:00:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Password was incorrect\"\n}"
+						},
+						{
+							"name": "User Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"\",\r\n    \"password\": \"jobs@256\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4500/users/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4500",
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "30"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1e-SjRqG3YE8NHWKug19Eh3YHaXppU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 31 Aug 2024 11:01:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"User was not found\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Authors",
+			"item": []
+		}
+	]
+}

@@ -2,6 +2,8 @@
 import express from 'express';
 import cors from 'cors';
 import userRouter from "./Routes/usersRouter.js";
+import authorRouter from "./Routes/authorRouter.js";
+import authRouter from "./Routes/authRouter.js";
 
 const app = express()
 
@@ -15,10 +17,12 @@ let corsOptions = {
 
 app.use(cors())
 
-app.use("/users", userRouter)
+app.use("/api/v1/quotes", userRouter)
+app.use("/api/v1/authors", authorRouter)
+app.use("/api/v1/users", authRouter)
 
 // Set Request Handlers based on API endpoints
-app.get("/", (req, res)=>{
+app.get("/api/v1/", (req, res)=>{
     res.send(`<h1 style="color: red;"> Hello World </h1>`)
 })
 

@@ -13,5 +13,10 @@
     "name": "Lucia Nambi",
     "email": "lucia@gmail.com",
     "pass": 448
+  },
+  {
+    "name": "John Doe",
+    "email": "john@gmail.com",
+    "pass": "23kjbkbjfl"
   }
 ]

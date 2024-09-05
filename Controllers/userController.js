@@ -38,8 +38,19 @@ const createNewUser = (req, res) => {
   // save the data in the data.json file
 };
 
+const deleteQuote = async(req,res)=>{
+  const data = await prisma.quote.delete({
+    where:{
+      id: +req.params.id
+    }
+  })
+
+  res.json(data)
+}
+
 const functions = {
   createNewUser,
   getallUsers,
+  deleteQuote
 };
 export default functions;
