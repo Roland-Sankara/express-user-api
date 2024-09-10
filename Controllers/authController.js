@@ -21,7 +21,7 @@ const creatUser = async (req,res)=>{
 const getUsers = async (req, res) => {
   console.log(req.query)
   const users = await prisma.user.findMany({
-    take: parseInt(req.query.results) || "*"
+    take: parseInt(req.query.results)
   });
 
   res.status(200).json(users);

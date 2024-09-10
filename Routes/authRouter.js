@@ -5,7 +5,7 @@ import validateRequest from '../utils/joi.validator.js'
 import validateToken from '../utils/validateToken.js'
 const router = express.Router()
 
-router.get('/', validateToken, getUsers)
+router.get('/', getUsers)
 router.post('/', validateRequest(userschema), creatUser)
 router.post('/login', loginAUser)
 
