@@ -6,10 +6,28 @@ on:
     push:
         branches: [main]
 
+env:
+  DATABASE_URL: postgresql://postgres:roland@DB@localhost:5433/quotes-api-db?schema=public
 
 jobs:
     testing_api:
         runs-on: ubuntu-latest
+
+        services:
+          postgres:
+            image: postgres:14-alpine
+            env:
+              POSTGRES_USER: postgres
+              POSTGRES_PASSWORD: roland@DB
+              POSTGRES_DB: quotedb
+            ports:
+              - 5432:5432
+            options: >-
+              --health-cmd pg_isready
+              --health-interval 10s
+              --health-timeout 5s
+              --health-retries 5
+              
         steps:
             - name: Clone repo code into the runner
               uses: actions/checkout@v2 
