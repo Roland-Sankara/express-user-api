@@ -7,7 +7,7 @@ on:
         branches: [main]
 
 env:
-  DATABASE_URL: postgresql://postgres:roland@DB@localhost:5433/quotes-api-db?schema=public
+  DATABASE_URL: postgresql://postgres:roland@DB@localhost:5432/quotes-api-db?schema=public
 
 jobs:
     testing_api:
